@@ -109,7 +109,9 @@ class LeaveTransitionSerializer(serializers.Serializer):
     placement's in the generated schema (drf-spectacular derives component
     names from class names alone)."""
 
-    to_status = serializers.ChoiceField(choices=list(sm.ALL_STATUSES))
+    # sorted(): ALL_STATUSES is a frozenset, so list() order would change per
+    # run and churn the generated schema, which CI diffs byte for byte.
+    to_status = serializers.ChoiceField(choices=sorted(sm.ALL_STATUSES))
     note = serializers.CharField(max_length=300, required=False, allow_blank=True,
                                  default="")
 

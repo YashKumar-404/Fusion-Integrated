@@ -4412,18 +4412,18 @@ components:
       - document_id
     ToStatusEnum:
       enum:
-      - withdrawn
-      - cancelled
-      - rejected
-      - pending
       - approved
+      - cancelled
+      - pending
+      - rejected
+      - withdrawn
       type: string
       description: |-
-        * `withdrawn` - withdrawn
-        * `cancelled` - cancelled
-        * `rejected` - rejected
-        * `pending` - pending
         * `approved` - approved
+        * `cancelled` - cancelled
+        * `pending` - pending
+        * `rejected` - rejected
+        * `withdrawn` - withdrawn
     TopicEnum:
       enum:
       - drive
